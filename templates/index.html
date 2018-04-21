@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Houses</title>
+    <link rel="stylesheet" href="{% static 'GameofThrones/css/bootstrap.min.css' %}">
+  </head>
+  <body>
+    <div class="container">
+      <ol class="breadcrumb my-4">
+        <li class="breadcrumb-item active">Houses</li>
+      </ol>
+      <table class="table">
+        <thead class="thead-inverse">
+          <tr>
+            <th>House</th>
+            <th>Image</th>
+            <th>Leader</th>
+            <th>Successor</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for house in houses %}
+            <tr>
+              <td>
+                {{ house.h_name }}
+                <small class="text-muted d-block">{{ house.house_slogan }}</small>
+              </td>
+              <td class="align-middle">{{house.h_image}}</td>
+              <td class="align-middle">{{house.house_leader_id}}</td>
+              <td class="align-middle">{{house.leader_successor_id}}</td>
+              <td></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
