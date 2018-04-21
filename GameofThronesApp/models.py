@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 
 class Character(models.Model):
 	character_id = models.AutoField(primary_key=True)
-	c_name = models.CharField(max_length=22)
-	c_image = models.CharField(max_length=1024)
+	c_name = models.CharField(max_length=22,blank = False)
+	c_image = models.CharField(max_length=1024,blank = False)
 
 	class Meta:
 		db_table = u'CHARACTER'

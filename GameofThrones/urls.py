@@ -21,4 +21,9 @@ from GameofThronesApp import views
 urlpatterns = [
 	url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
+    url(r'^house/(?P<pk>\d+)/$',views.house,name='house'),
+    url(r'^character/(?P<pk>\d+)/$', views.character, name='character'),
+    url(r'^character/(?P<pk>\d+)new/$',views.new_character,name='new_character')
+    url(r'^house/(?P<pk>\d+)new/$',views.new_house,name='new_house')
+    url(r'^battle/(?P<pk>\d+)new/$',views.new_battle,name='new_battle')
 ]
