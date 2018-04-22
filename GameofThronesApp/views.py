@@ -16,11 +16,12 @@ def index(request):
 	return HttpResponse("Valar Morghulis")'''
 	characters = Character.objects.all()
 	houses = House.objects.all()
+	battles = Battle.objects.all()
 	'''for character in characters:
 		_characters.append(character.c_name.replace(' ','_'))'''
 	'''for character in characters:
 		urllib.request.urlretrieve(character.c_image,"F:\\Programs\\Python-Programs\\Django-programs\\GameofThrones\\static\\GameofThrones\\images\\House")'''
-	return render(request,'index.html',{'characters':characters,'houses':houses})
+	return render(request,'index.html',{'characters':characters,'houses':houses,'battles':battles})
 
 def house(request,pk):
 	house = House.objects.get(pk=pk)
@@ -33,7 +34,14 @@ def character(request,pk):
 		#urllib.request.urlretrieve(character.c_image,"F:\\Programs\\Python-Programs\\Django-programs\\GameofThrones\\static\\GameofThrones\\images\\Character")
 	except Character.DoesNotExist:
 		raise Http404
-	return render(request,'character.html',{'character':character})
+	return render(request,'characters.html',{'character':character})
+
+def add_character(request):
+	try:
+		character = Character.objects.get()
+	except Character.DoesNotExist:
+		raise Http404
+	return render(request,'new_character.html',{'character':character})
 
 def new_character(request,pk):
 	try:
@@ -41,6 +49,13 @@ def new_character(request,pk):
 	except Character.DoesNotExist:
 		raise Http404
 	return render(request,'new_character.html',{'character':character})
+
+def delete_character(request):
+	try:
+		character = Character.objects.get()
+	except Character.DoesNotExist:
+		raise Http404
+	return render(request,'new_delete.html',{'character':character})
 
 def new_house(request,pk):
 	try:

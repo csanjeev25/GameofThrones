@@ -34,6 +34,12 @@ class Battle(models.Model):
 	attacker_size = models.IntegerField(null=True)
 	defender_size = models.IntegerField(null=True)
 
+	def getattacker(self):
+		return self.attacker_id.h_name
+
+	def getdefender(self):
+		return self.defender_id.h_name
+
 	class Meta:
 		db_table = u'BATTLE'
 		def __str__(self):

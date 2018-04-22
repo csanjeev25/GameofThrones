@@ -26,4 +26,8 @@ urlpatterns = [
     url(r'^character/(?P<pk>\d+)new/$',views.new_character,name='new_character'),
     url(r'^house/(?P<pk>\d+)new/$',views.new_house,name='new_house'),
     url(r'^battle/(?P<pk>\d+)new/$',views.new_battle,name='new_battle'),
+    url(r'^characters/',views.character,name='character'),
+    url(r'^index/',views.index,name='index'),
+    url(r'^add_character/',views.add_character,name='add_character'),
+    url(r'^delete_character/',views.delete_character,name='delete_character'),
 ]
