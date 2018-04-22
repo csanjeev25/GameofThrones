@@ -1,30 +1,134 @@
-{% extends 'base.html' %}
+ {% load _character%}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<title>GOT</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
 
-{% block breadcrumb %}
-  <li class="breadcrumb-item active">Home</li>
-{% endblock %}
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="#home" class="w3-bar-item w3-button"><b>GOT</b></a>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="index.html" class="w3-bar-item w3-button">HOME</a>
+      <a href="#character" class="w3-bar-item w3-button">Character</a>
+      <a href="#house" class="w3-bar-item w3-button">CHARACTERS</a>
+      <!--a href="#contact" class="w3-bar-item w3-button">Contact</a-->
+    </div>
+  </div>
+</div>
 
-{% block content %}
-  <table class="table">
-    <thead class="thead-inverse">
-      <tr>
-        <th>House</th>
-        <th>Character</th>
-        <th>Battle</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for house in houses %}
-        <tr>
-          <td>
-            <a href="{% url 'house' house.pk %}">{{ house.h_name }}</a>
-            <small class="text-muted d-block">{{ house.house_slogan }}</small>
-          </td>
-          <td class="align-middle">0</td>
-          <td class="align-middle">0</td>
-          <td></td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-{% endblock %}
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="{% static 'GameofThrones/images/chair.jpg' %}" alt="GOTchair" width="1500" height="800">
+  <div class="w3-display-middle w3-margin-top w3-center">
+    <h1 class="w3-xxxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>GAME OF THRONES</b></span></h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+  <!-- Project Section -->
+  <div class="w3-container w3-padding-32" id="character">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Character</h3>
+  </div>
+
+  {% for character in characters%}
+
+  <div class="w3-row-padding">
+
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">{{character.c_name}}</div>
+        <a href="stark.html">
+          <img src={{character.c_image}} alt="House" style="width:100%">
+        </a>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">{{character.c_name}}</div>
+        <a href="baratheon.html">
+          <img src={{character.c_image}} alt="House" style="width:100%">
+        </a>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">{{character.c_name}}</div>
+        <a href="lannister.html">
+          <img src={{character.c_image}} alt="House" style="width:100%">
+        </a>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">{{character.c_name}}</div>
+        <a href="greyjoy.html">
+          <img src={{character.c_image}} alt="House" style="width:100%">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-container w3-padding-32" id="house">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">House</h3>
+  </div>
+
+  {% endfor %}
+
+  {% for house in houses %}
+
+  <div class="w3-row-padding">
+
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">{{house.h_name}}</div>
+        <div class="w3-display-topleft w3-black w3-padding">{{house.house_slogan}}</div>
+        <a href="stark.html">
+          <img src={{house.h_image}} alt="House" style="width:100%">
+        </a>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">{{character.c_name}}</div>
+        <div class="w3-display-topleft w3-black w3-padding">{{house.house_slogan}}</div>
+        <a href="baratheon.html">
+          <img src={{house.h_image}} alt="House" style="width:100%">
+        </a>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">{{character.c_name}}</div>
+        <div class="w3-display-topleft w3-black w3-padding">{{house.house_slogan}}</div>
+        <a href="lannister.html">
+          <img src={{house.h_image}} alt="House" style="width:100%">
+        </a>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">{{character.c_name}}</div>
+        <div class="w3-display-topleft w3-black w3-padding">{{house.house_slogan}}</div>
+        <a href="greyjoy.html">
+          <img src={{house.h_image}} alt="House" style="width:100%">
+        </a>
+      </div>
+    </div>
+  </div>
+
+{% endfor %}
+
+<footer class="w3-center w3-black w3-padding-16">
+  <p>By <a href="#" title="WITH LOVE" target="_blank" class="w3-hover-text-green">ANKIT-PRATIK-SANJEEV</a></p>
+</footer>
+
+</body>
+</html>

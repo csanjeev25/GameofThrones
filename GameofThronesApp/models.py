@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class Character(models.Model):
 	character_id = models.AutoField(primary_key=True)
 	c_name = models.CharField(max_length=22,blank = False)
-	c_image = models.CharField(max_length=1024,blank = False)
+	c_image = models.ImageField(max_length=1024,blank = False)
 
 	class Meta:
 		db_table = u'CHARACTER'
@@ -16,7 +16,7 @@ class Character(models.Model):
 class House(models.Model):
 	house_id = models.AutoField(primary_key=True)
 	h_name = models.CharField(max_length=22)
-	h_image = models.CharField(max_length=1024)
+	h_image = models.ImageField(max_length=1024)
 	house_slogan = models.CharField(max_length=100)
 	house_leader = models.ForeignKey(Character,related_name = 'characterID')
 	leader_successor = models.ForeignKey(Character,related_name = 'characterID2')
