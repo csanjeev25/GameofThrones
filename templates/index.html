@@ -60,7 +60,7 @@
 
   <div class="w3-container w3-padding-32" id="house">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">House</h3>
-        <a href="{% url 'add_character' %}"><img src="{% static 'GameofThrones/images/plus.jpg' %}" align="w3-right" style="width: 2%" style="height: 2%">
+        <a href="{% url 'add_house' %}"><img src="{% static 'GameofThrones/images/plus.jpg' %}" align="w3-right" style="width: 2%" style="height: 2%">
     <a href="{% url 'delete_character' %}"><img src="{% static 'GameofThrones/images/minus.jpg' %}" align="w3-right" style="width: 2%" style="height: 2%">
   </div>
 
@@ -70,7 +70,7 @@
 
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">{{house.h_name}}</div>
+        <div class="w3-display-topleft w3-black w3-padding">{{house.h_name}}</div><br>
         <div class="w3-display-topleft w3-black w3-padding">{{house.house_slogan}}</div>
           <img src={{house.h_image}} alt="House" style="width:100%">
       </div>
@@ -81,7 +81,7 @@
 
  <div class="w3-container w3-padding-32" id="battle">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Battle</h3>
-        <a href="{% url 'add_character' %}"><img src="{% static 'GameofThrones/images/plus.jpg' %}" align="w3-right" style="width: 2%" style="height: 2%">
+        <a href="{% url 'add_battle' %}"><img src="{% static 'GameofThrones/images/plus.jpg' %}" align="w3-right" style="width: 2%" style="height: 2%">
     <a href="{% url 'delete_character' %}"><img src="{% static 'GameofThrones/images/minus.jpg' %}" align="w3-right" style="width: 2%" style="height: 2%">
   </div>
 

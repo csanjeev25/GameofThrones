@@ -1,0 +1,52 @@
+{% load _character%}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<title>GOT</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ <link rel="stylesheet" href="{% static 'GameofThrones/css/bootstrap.min.css' %}">
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="#home" class="w3-bar-item w3-button"><b>GOT</b></a>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="{% url 'index'%}" class="w3-bar-item w3-button">HOME</a>
+      <a href="{% url 'index'%}" class="w3-bar-item w3-button">Character</a>
+      <a href="{% url 'index'%}" class="w3-bar-item w3-button">House</a>
+      <a href="{% url 'index'%}"class="w3-bar-item w3-button">Battle</a>
+      <!--a href="#contact" class="w3-bar-item w3-button">Contact</a-->
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="{% static 'GameofThrones/images/chair.jpg' %}" alt="GOTchair" width="1500" height="800">
+  <div class="w3-display-middle w3-margin-top w3-center">
+    <h1 class="w3-xxxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>GAME OF THRONES</b></span></h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div display:inline class="w3-content w3-padding" style="max-width:1564px" >
+</div>
+<form method="post">
+  {% csrf_token %}
+    <div class="form-group">
+      <label for="id_subject">Character</label>
+      <input type="text" class="form-control" id="id_character" name="subject">
+    </div>
+    <div class="form-group">
+      <label for="id_message">Character Image URL</label>
+      <input class="form-control" id="id_image" name="message">
+    </div>
+    <button type="submit" class="btn btn-success">Post</button>
+  </form>
+
+</body>
+</html>

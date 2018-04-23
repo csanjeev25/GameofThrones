@@ -38,7 +38,7 @@ def character(request,pk):
 
 def add_character(request):
 	try:
-		character = Character.objects.get()
+		character = Character.objects.get(pk=1)
 	except Character.DoesNotExist:
 		raise Http404
 	return render(request,'new_character.html',{'character':character})
@@ -57,14 +57,14 @@ def delete_character(request):
 		raise Http404
 	return render(request,'new_delete.html',{'character':character})
 
-def new_house(request,pk):
+def add_house(request):
 	try:
 		house = House.objects.get(pk=pk)
 	except House.DoesNotExist:
 		raise Http404
 	return render(request,'new_house.html',{'house':house})
 
-def new_battle(request,pk):
+def add_battle(request):
 	try:
 		battle = Battle.objects.get(pk=pk)
 	except Battle.DoesNotExist:

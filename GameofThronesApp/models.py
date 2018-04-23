@@ -13,6 +13,9 @@ class Character(models.Model):
 		def __str__(self):
 			return(self.name)
 
+	def __str__(self):
+		return(self.c_name)
+
 class House(models.Model):
 	house_id = models.AutoField(primary_key=True)
 	h_name = models.CharField(max_length=22)
@@ -25,6 +28,9 @@ class House(models.Model):
 		db_table = u'HOUSE'
 		def __str__(self):
 			return(self.h_name)
+
+	def __str__(self):
+		return self.h_name
 
 class Battle(models.Model):
 	battle_id = models.AutoField(primary_key=True)
@@ -44,4 +50,7 @@ class Battle(models.Model):
 		db_table = u'BATTLE'
 		def __str__(self):
 			return(self.b_name)
+
+	def __str__(self):
+		return self.b_name
 
